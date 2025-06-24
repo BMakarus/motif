@@ -83,9 +83,9 @@ while diff>0.0001:
 
 
 estimated_params = {
-    "alpha" : alpha,            # we "copy" this alpha — it was not estimated
-    "Theta" : theta.tolist(),   # estimated
-    "ThetaB" : theta_b.tolist()  # estimated
+    "alpha" : alpha,            
+    "Theta" : theta.tolist(),   
+    "ThetaB" : theta_b.tolist()  
     }
 
 with open(output_file, 'w') as output_file:
