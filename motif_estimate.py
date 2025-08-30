@@ -9,12 +9,10 @@ def parse_arguments():
                         help='File with input data (default: %(default)s)')
     parser.add_argument('--output', default="estimated_params.json", required=False,
                         help='File where the estimated parameters will be saved (default: %(default)s)')
-    parser.add_argument('--estimate-alpha', default="no", required=False,
-                        help='Should alpha be estimated or not? (default: %(default)s)')
     args = parser.parse_args()
-    return args.input, args.output, args.estimate_alpha
+    return args.input, args.output
 
-input_file, output_file, estimate_alpha = parse_arguments()
+input_file, output_file = parse_arguments()
 
 with open(input_file, 'r') as input_file:
     data = json.load(input_file)
