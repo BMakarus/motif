@@ -2,7 +2,6 @@ import json
 import numpy as np
 import argparse
 
-
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Motif generator")
     parser.add_argument('--params', default="params_set1.json", required=False,
@@ -17,13 +16,11 @@ param_file, output_file = parse_arguments()
 with open(param_file, 'r') as input_file:
     params = json.load(input_file)
 
-
 w = params['w']
 k = params['k']
 alpha = params['alpha']
-theta = np.asarray(params['Theta'])
-theta_b = np.asarray(params['ThetaB'])
-
+theta = np.asarray(params['theta'])
+theta_b = np.asarray(params['theta_b'])
 
 Sigma = np.arange(1, 5, 1)
 z = np.random.binomial(1, alpha, size=k)
@@ -34,7 +31,6 @@ for i, value in enumerate(z):
     else:
         for j in range(w):
             X[i, j] = np.random.choice(Sigma, p=theta[:, j])
-
 
 gen_data = {
     "alpha": alpha,
